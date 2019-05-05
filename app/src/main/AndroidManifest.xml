@@ -10,6 +10,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".StockIndices"
+            android:label="@string/title_activity_stock_indices"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".TypesOfShares"
+            android:label="@string/title_activity_types_of_shares"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IPO"
+            android:label="@string/title_activity_ipo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MarketJargon"
+            android:label="@string/title_activity_market_jargon"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SharesAndEquity"
+            android:label="@string/title_activity_shares_and_equity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ModuleList"
+            android:label="@string/title_activity_module_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

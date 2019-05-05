@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">BizWhiz</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_module_list">ModuleList</string>
+    <string name="title_activity_shares_and_equity">SharesAndEquity</string>
+    <string name="title_activity_ipo">IPO</string>
+    <string name="title_activity_stock_indices">StockIndices</string>
+    <string name="title_activity_types_of_shares">TypesOfShares</string>
+    <string name="title_activity_market_jargon">MarketJargon</string>
 </resources>

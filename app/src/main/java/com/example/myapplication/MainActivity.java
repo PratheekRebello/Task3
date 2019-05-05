@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.content.Intent;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,14 +21,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //FloatingActionButton fab = findViewById(R.id.fab);
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
+        Button button1 = (Button) findViewById(R.id.modules);
+
+        button1.setOnClickListener(new OnClickListener(){
+            public void onClick(View arg0)
+            {   Intent i = new Intent(getApplicationContext(),ModuleList.class);
+                startActivity(i);
+
+            }   });
     }
 
     @Override
@@ -49,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }

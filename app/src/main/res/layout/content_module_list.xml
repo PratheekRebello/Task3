@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ModuleList"
+    tools:showIn="@layout/activity_module_list">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="321dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:text="SELECT A MODULE:"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <Button
+            android:id="@+id/shares_and_equity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SHARES and EQUITY" />
+
+        <Button
+            android:id="@+id/IPO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IPO" />
+
+        <Button
+            android:id="@+id/stock_indices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STOCK INDICES" />
+
+        <Button
+            android:id="@+id/types_of_shares"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TYPES of SHARES" />
+
+        <Button
+            android:id="@+id/market_jargon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MARKET JARGON" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

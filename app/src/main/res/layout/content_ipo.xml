@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".IPO"
+    tools:showIn="@layout/activity_ipo">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="382dp"
+        android:layout_height="495dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="An initial public offering, or IPO, is the very first sale of stock issued by a company to the public. \nPrior to an IPO the company is considered private, with a relatively small number of shareholders made up primarily of early investors (such as the founders, their families and friends) and professional investors (such as venture capitalists or angel investors). \nThe public, on the other hand, consists of everybody else – any individual or institutional investor who wasn’t involved in the early days of the company and who is interested in buying shares of the company. \nUntil a company’s stock is offered for sale to the public, the public is unable to invest in it. You can potentially approach the owners of a private company about investing, but they're not obligated to sell you anything. \nPublic companies, on the other hand, have sold at least a portion of their shares to the public to be traded on a stock exchange. This is why an IPO is also referred to as ‘going public.’"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/take"
+        android:layout_width="262dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TAKE THE QUIZ!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="346dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="INITIAL PUBLIC OFFERING"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
+</android.support.constraint.ConstraintLayout>

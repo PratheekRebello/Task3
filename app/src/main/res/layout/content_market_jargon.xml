@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MarketJargon"
+    tools:showIn="@layout/activity_market_jargon">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="375dp"
+        android:layout_height="542dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text=" Bull Market (Bullish) – If you believe that the stock prices are likely to go up then you are said to be bullish on the stock price.\n   Bear Market (Bearish) – If you believe that the stock prices are likely to go down then you are said to be bearish on the stock price. \n   Trend – A term ‘trend’ usually refers to the general market direction, and its associated strength. For example, if the market is declining fast, the trend is said to be bearish. If the market is trading flat with no movement then the trend is said to be sideways.\n   Face value of a stock – Face value (FV) or par value of a stock indicates the fixed denomination of a share. The face value is important with regard to corporate action. Usually when dividends and stock split are announced they are issued keeping the face value in perspective. For example the FV of Infosys is 5, and if they announce an annual dividend of Rs.63/- then it means the dividend paid is 1260%s (63 divided by 5).\n  Upper Circuit/Lower Circuit – The exchange sets up a price band at which the stock can be traded in the market on a given trading day. The highest price the stock can reach on the day is the upper circuit limit and the lowest price is the lower circuit limit. The limit for a stock is set to 2%, 5%, 10% or 20% based on the exchange’s selection criteria. The exchange places these restrictions to control excessive volatility when a stock reacts to a certain news related to the company."
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.381" />
+
+    <Button
+        android:id="@+id/take1"
+        android:layout_width="279dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TAKE THE QUIZ!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="273dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="MARKET JARGON"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+</android.support.constraint.ConstraintLayout>
