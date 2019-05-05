@@ -2,16 +2,17 @@ package com.example.myapplication;
 
 public class Player
 {
-    int date;
     Portfolio myPortfolio;
     int currentCash;
+    int assets;
+    Market m;
 
 
-
-    public Player()
+    public Player(Market m)
     {
-        date = 1;
         myPortfolio = new Portfolio();
+        this.m = m;
+        assets = myPortfolio.value();
     }
 
     public void Invest(Investment inv) throws NotEnoughMoney
@@ -19,7 +20,7 @@ public class Player
         if(currentCash < inv.currentSellingPrice) {
             throw new NotEnoughMoney();
         }
-        inv.date = date;
+        inv.date = m.day;
         myPortfolio.addInvestment(inv);
         currentCash = currentCash - inv.currentSellingPrice;
     }

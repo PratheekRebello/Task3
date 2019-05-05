@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
 
             }   });
+        Button button2 = (Button) findViewById(R.id.market);
+
+        button2.setOnClickListener(new OnClickListener(){
+            public void onClick(View arg0)
+            {   Intent i = new Intent(getApplicationContext(),MarketSim.class);
+                startActivity(i);
+
+            }   });
     }
 
     @Override

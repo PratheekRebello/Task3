@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MarketSim"
+            android:label="@string/title_activity_market_sim"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".StockIndices"
             android:label="@string/title_activity_stock_indices"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TypesOfShares"
             android:label="@string/title_activity_types_of_shares"

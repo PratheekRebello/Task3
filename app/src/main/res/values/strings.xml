@@ -7,4 +7,5 @@
     <string name="title_activity_stock_indices">StockIndices</string>
     <string name="title_activity_types_of_shares">TypesOfShares</string>
     <string name="title_activity_market_jargon">MarketJargon</string>
+    <string name="title_activity_market_sim">MarketSim</string>
 </resources>

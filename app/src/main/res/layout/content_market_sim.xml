@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MarketSim"
+    tools:showIn="@layout/activity_market_sim">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="352dp"
+        android:layout_height="333dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/stocks"
+                android:layout_width="170dp"
+                android:layout_height="148dp"
+                android:text="STOCKS"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/gold"
+                android:layout_width="174dp"
+                android:layout_height="148dp"
+                android:text="GOLD"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/real_estate"
+                android:layout_width="177dp"
+                android:layout_height="160dp"
+                android:text="REAL\n ESTATE"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/fixed_deposit"
+                android:layout_width="169dp"
+                android:layout_height="match_parent"
+                android:text="FIXED\n DEPOSIT"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="321dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="144dp"
+                android:layout_height="match_parent"
+                android:background="#3F51B5"
+                android:requiresFadingEdge="horizontal"
+                android:text="DAY:"
+                android:textAlignment="center"
+                android:textColor="#FEFEFE"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="177dp"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:background="#83B6DB"
+                android:requiresFadingEdge="horizontal"
+                android:text="CURRENT CASH:"
+                android:textAlignment="center"
+                android:textColor="#FEFEFE"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/current_cash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="129dp"
+                android:layout_height="match_parent"
+                android:background="#3F51B5"
+                android:requiresFadingEdge="horizontal"
+                android:text="ASSETS:"
+                android:textAlignment="center"
+                android:textColor="#FEFEFE"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/assets"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

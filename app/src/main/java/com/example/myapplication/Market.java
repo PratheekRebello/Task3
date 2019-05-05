@@ -1,8 +1,11 @@
 package com.example.myapplication;
 import java.util.*;
+import android.content.Context;
 
 public class Market
 {
+    int day;
+    DataExtractor data;
     LinkedList<Stock> stocks = new LinkedList<>();
     LinkedList<Bond> bonds = new LinkedList<>();
     LinkedList<Gold> gold = new LinkedList<>();
@@ -10,8 +13,9 @@ public class Market
     LinkedList<MutualFund> mutual_funds = new LinkedList<>();
     LinkedList<FixedDeposit> fixed_deposits = new LinkedList<>();
 
-    public Market()
+    public Market(Context con)
     {
+        day = 1;
         Stock a = new Stock("Reliance", 1, 0,0);
         Stock b = new Stock("TataSteel", 1, 0,0);
         Stock c = new Stock("HDFC", 1, 0,0);
@@ -60,13 +64,74 @@ public class Market
             x = new RealEstate("RealEstate",1,0,0);
             real_estate.add(x);
         }
-        DataExtractor data = new DataExtractor(this);
+        data = new DataExtractor(this, con);
+
+        Initialise();
     }
 
-    public static void main(String args[])
+    public void Initialise()
+    {
+        for(int i = 0; i<stocks.size(); i++)
+        {
+            data.Initialise(i,stocks.get(i));
+        }
+    }
+    public void DailyUpdate()
+    {
+        this.day = this.day +1;
+        for(int i = 0; i<stocks.size(); i++)
+        {
+            data.updateGain(i,stocks.get(i));
+            stocks.get(i).DailyUpdate();
+        }
+    }
+
+   /* public static void main(String args[])
     {
         Market m = new Market();
-    }
+        m.Initialise();
+        for(int i = 0; i<m.stocks.size(); i++)
+        {
+            System.out.print(m.stocks.get(i).name);
+            System.out.print(" ");
+            System.out.print(m.stocks.get(i).date);
+            System.out.print(" ");
+            System.out.println(m.stocks.get(i).currentMarketValue);
+        }
+        System.out.print("\n");
+        m.day = m.day +1;
+        m.DailyUpdate();
+        for(int i = 0; i<m.stocks.size(); i++)
+        {
+            System.out.print(m.stocks.get(i).name);
+            System.out.print(" ");
+            System.out.print(m.stocks.get(i).date);
+            System.out.print(" ");
+            System.out.println(m.stocks.get(i).currentMarketValue);
+        }
+        System.out.print("\n");
+        m.day = m.day +1;
+        m.DailyUpdate();
+        for(int i = 0; i<m.stocks.size(); i++)
+        {
+            System.out.print(m.stocks.get(i).name);
+            System.out.print(" ");
+            System.out.print(m.stocks.get(i).date);
+            System.out.print(" ");
+            System.out.println(m.stocks.get(i).currentMarketValue);
+        }
+        System.out.print("\n");
+        m.day = m.day +1;
+        m.DailyUpdate();
+        for(int i = 0; i<m.stocks.size(); i++)
+        {
+            System.out.print(m.stocks.get(i).name);
+            System.out.print(" ");
+            System.out.print(m.stocks.get(i).date);
+            System.out.print(" ");
+            System.out.println(m.stocks.get(i).currentMarketValue);
+        }
+    }*/
 
 }
 

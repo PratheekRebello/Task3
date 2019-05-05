@@ -17,7 +17,7 @@ public class FixedDeposit extends Investment
     {
         if(date%7 == 0)
         {
-            Amount = ((gainPercent + 100) * Amount)/100;
+            Amount = (int)(((gainPercent + 100) * Amount))/100;
             currentMarketValue = Amount;
         }
     }

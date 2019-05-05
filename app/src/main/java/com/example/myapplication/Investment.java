@@ -6,12 +6,13 @@ public class Investment
     int currentMarketValue;
     int currentSellingPrice;
     int date;
-    int gainPercent;
+    float gainPercent;
     int liquidity;
 
     public void DailyUpdate()
     {
-        currentMarketValue = ((100 + gainPercent) * currentMarketValue)/100;
+        currentMarketValue = (int)((100 + gainPercent) * (float)currentMarketValue)/100;
+        date = date+1;
     }
     public void DateUpdate()
     {
