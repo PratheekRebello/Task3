@@ -13,6 +13,7 @@ public class Player
         myPortfolio = new Portfolio();
         this.m = m;
         assets = myPortfolio.value();
+        currentCash = 10000;
     }
 
     public void Invest(Investment inv) throws NotEnoughMoney

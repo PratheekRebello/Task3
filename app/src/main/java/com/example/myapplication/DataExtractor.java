@@ -39,19 +39,19 @@ public class DataExtractor
         for(int i = 0; i<m.bonds.size(); i++)
         {
             Bond temp = m.bonds.get(i);
-            List<List<String>> l = read("app/src/main/java/com/example/myapplication/sampledata/".concat(temp.name.concat(".csv")));
+            List<List<String>> l = read(temp.name.concat(".csv"));
             bonds.add(l);
         }
         for(int i = 0; i<m.gold.size(); i++)
         {
             Gold temp = m.gold.get(i);
-            List<List<String>> l = read("app/src/main/java/com/example/myapplication/sampledata/".concat(temp.name.concat(".csv")));
+            List<List<String>> l = read(temp.name.concat(".csv"));
             gold.add(l);
         }
         for(int i = 0; i<m.real_estate.size(); i++)
         {
             RealEstate temp = m.real_estate.get(i);
-            List<List<String>> l = read("app/src/main/java/com/example/myapplication/sampledata/".concat(temp.name.concat(".csv")));
+            List<List<String>> l = read(temp.name.concat(".csv"));
             real_estate.add(l);
         }
     }
@@ -73,6 +73,14 @@ public class DataExtractor
             return null;
         }
         return records;
+    }
+
+    public void Initialise(int index, Gold gld)
+    {
+        String s = gold.get(index).get(5).get(1);
+        s = s.substring(1,s.length()-1);
+        float f = Float.parseFloat(s);
+        gld.currentMarketValue = (int)f;
     }
 
     public void Initialise(int index, Stock stk)

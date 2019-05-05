@@ -28,6 +28,7 @@
                 android:layout_width="170dp"
                 android:layout_height="148dp"
                 android:text="STOCKS"
+                android:onClick="onClick"
                 android:textSize="24sp" />
 
             <Button
@@ -47,6 +48,7 @@
                 android:layout_width="177dp"
                 android:layout_height="160dp"
                 android:text="REAL\n ESTATE"
+                android:onClick="onClick"
                 android:textSize="24sp" />
 
             <Button

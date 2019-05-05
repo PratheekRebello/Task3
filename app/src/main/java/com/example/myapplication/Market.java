@@ -59,11 +59,17 @@ public class Market
         gold.add(go);
 
         RealEstate x;
-        for(int in = 0; in<20; in++)
-        {
-            x = new RealEstate("RealEstate",1,0,0);
-            real_estate.add(x);
-        }
+        RealEstate dddd = new RealEstate("Delhi",1,0,0);
+        RealEstate mmmm = new RealEstate("Mumbai",1,0,0);
+        RealEstate kkkk = new RealEstate("Kolkata",1,0,0);
+        RealEstate bbbb = new RealEstate("Bangalore",1,0,0);
+        RealEstate cccc = new RealEstate("Chennai",1,0,0);
+        real_estate.add(dddd);
+        real_estate.add(mmmm);
+        real_estate.add(kkkk);
+        real_estate.add(bbbb);
+        real_estate.add(cccc);
+
         data = new DataExtractor(this, con);
 
         Initialise();
@@ -74,6 +80,10 @@ public class Market
         for(int i = 0; i<stocks.size(); i++)
         {
             data.Initialise(i,stocks.get(i));
+        }
+        for(int i = 0; i<gold.size(); i++)
+        {
+            data.Initialise(i,gold.get(i));
         }
     }
     public void DailyUpdate()
