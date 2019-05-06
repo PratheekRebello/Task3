@@ -80,52 +80,52 @@ public class Quiz extends AppCompatActivity {
         if(s.equals("shares_and_equity"))
         {
             index = 0;
-            question.setText(String.valueOf("Question1"));
-            option1.setText(String.valueOf("1"));
-            option2.setText(String.valueOf("2"));
-            option3.setText(String.valueOf("3"));
-            option4 .setText(String.valueOf("4"));
-            correct = option1;
+            question.setText(String.valueOf("Why do businesses sell shares?"));
+            option1.setText(String.valueOf("Because they like to"));
+            option2.setText(String.valueOf("To expand the business"));
+            option3.setText(String.valueOf("Can't get a loan"));
+            option4 .setText(String.valueOf("Pressure from employees"));
+            correct = option2;
         }
         else if(s.equals("ipo"))
         {
             index = 1;
-            question.setText(String.valueOf("Question2"));
-            option1.setText(String.valueOf("1"));
-            option2.setText(String.valueOf("2"));
-            option3.setText(String.valueOf("3"));
-            option4 .setText(String.valueOf("4"));
-            correct = option2;
+            question.setText(String.valueOf("What is the difference between a public and a private company?"));
+            option1.setText(String.valueOf("Public companies have sold a part of their shares to the public"));
+            option2.setText(String.valueOf("Private companies are held by a private pool of investors"));
+            option3.setText(String.valueOf("Both"));
+            option4 .setText(String.valueOf("None"));
+            correct = option3;
         }
         else if(s.equals("stock_indices"))
         {
             index = 2;
-            question.setText(String.valueOf("Question3"));
-            option1.setText(String.valueOf("1"));
-            option2.setText(String.valueOf("2"));
-            option3.setText(String.valueOf("3"));
-            option4 .setText(String.valueOf("4"));
-            correct = option3;
+            question.setText(String.valueOf("Who should consider investing in an index?"));
+            option1.setText(String.valueOf("Person betting on economy"));
+            option2.setText(String.valueOf("Person who likes a specific company"));
+            option3.setText(String.valueOf("Investor with high risk appetite"));
+            option4 .setText(String.valueOf("Senior citizens"));
+            correct = option1;
         }
         else if(s.equals("types_of_shares"))
         {
             index = 3;
-            question.setText(String.valueOf("Question4"));
-            option1.setText(String.valueOf("1"));
-            option2.setText(String.valueOf("2"));
-            option3.setText(String.valueOf("3"));
-            option4 .setText(String.valueOf("4"));
-            correct = option4;
+            question.setText(String.valueOf("What is a preference share"));
+            option1.setText(String.valueOf("A non voting share where the holder is entitled to dividend before the regular equity shareholder"));
+            option2.setText(String.valueOf("A preferred share to get a vote in management of company"));
+            option3.setText(String.valueOf("Preference to be repaid during liquidation of company"));
+            option4 .setText(String.valueOf("A debt note"));
+            correct = option1;
         }
         else if(s.equals("market_jargon"))
         {
             index = 4;
-            question.setText(String.valueOf("Question5"));
-            option1.setText(String.valueOf("1"));
-            option2.setText(String.valueOf("2"));
-            option3.setText(String.valueOf("3"));
-            option4 .setText(String.valueOf("4"));
-            correct = option1;
+            question.setText(String.valueOf("What is face value of a stock?"));
+            option1.setText(String.valueOf("The current market price of a share"));
+            option2.setText(String.valueOf("The dividend per year on a share"));
+            option3.setText(String.valueOf("Fixed denomination of a share of a company"));
+            option4 .setText(String.valueOf("The discounted cash flow value of a share"));
+            correct = option3;
         }
     }
 

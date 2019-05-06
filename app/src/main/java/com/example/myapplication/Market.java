@@ -95,7 +95,7 @@ public class Market implements Serializable
         }
         for(int i = 0; i<gold.size(); i++)
         {
-            data.updateGain(i,gold.get(i));
+            data.updateGainGold(i,gold.get(i));
             gold.get(i).DailyUpdate();
         }
     }

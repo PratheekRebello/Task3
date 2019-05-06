@@ -103,6 +103,7 @@ public class Buy extends AppCompatActivity implements Serializable{
                         finish();
                     }
                     catch(Exception e){
+                        Toast.makeText(getBaseContext(), "Not Enough Money!!" , Toast.LENGTH_SHORT ).show();
                         return;
                     }
                 } catch(NumberFormatException e) {
@@ -127,6 +128,8 @@ public class Buy extends AppCompatActivity implements Serializable{
                         finish();
                     }
                     catch(Exception e){
+                        Toast.makeText(getBaseContext(), "Not Enough Holdings!!" , Toast.LENGTH_SHORT ).show();
+
                         return;
                     }
                 } catch(NumberFormatException e) {

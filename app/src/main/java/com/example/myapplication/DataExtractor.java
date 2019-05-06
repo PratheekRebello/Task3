@@ -102,13 +102,13 @@ public class DataExtractor implements Serializable
         }
     }
 
-    public void updateGain(int index, Gold stk)
+    public void updateGainGold(int index, Gold stk)
     {
-        String s = gold.get(index).get(ind+(m.day.date % 400)).get(3);
+        String s = gold.get(index).get(ind+(m.day.date % 400)).get(1);
         s = s.substring(1,s.length()-1);
         float f1 = Float.parseFloat(s);
 
-        s = gold.get(index).get(ind+((m.day.date +1) % 400)).get(3);
+        s = gold.get(index).get(ind+((m.day.date +1) % 400)).get(1);
         s = s.substring(1,s.length()-1);
         float f2 = Float.parseFloat(s);
         stk.gainPercent = 100 * (f2 - f1)/f2;
