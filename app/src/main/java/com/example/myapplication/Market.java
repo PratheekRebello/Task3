@@ -84,6 +84,10 @@ public class Market implements Serializable
         {
             data.Initialise(i,gold.get(i));
         }
+        for(int i =0; i<fixed_deposits.size();i++)
+        {
+            data.FDInitialise(i, fixed_deposits.get(i));
+        }
     }
     public void DailyUpdate()
     {

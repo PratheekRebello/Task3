@@ -18,24 +18,17 @@ public class DataExtractor implements Serializable
     List<List<List<String>>> bonds = new ArrayList<>();
     List<List<List<String>>> real_estate = new ArrayList<>();
     List<List<List<String>>> gold = new ArrayList<>();
-    List<List<List<String>>> fixed_deposits = new ArrayList<>();
+    List<List<String>> fixed_deposits = new ArrayList<>();
     List<List<String>> news = new ArrayList<>();
 
     public DataExtractor(Market m, Context c)
     {
         this.m = m;
         this.c = c;
-        for(int i = 0; i<m.stocks.size(); i++)
-        {
+        for(int i = 0; i<m.stocks.size(); i++) {
             Stock temp = m.stocks.get(i);
             List<List<String>> l = read(temp.name.concat(".csv"));
             stocks.add(l);
-        }
-        for(int i = 0; i<m.bonds.size(); i++)
-        {
-            Bond temp = m.bonds.get(i);
-            List<List<String>> l = read(temp.name.concat(".csv"));
-            bonds.add(l);
         }
         for(int i = 0; i<m.gold.size(); i++)
         {
@@ -49,7 +42,7 @@ public class DataExtractor implements Serializable
             List<List<String>> l = read(temp.name.concat(".csv"));
             real_estate.add(l);
         }
-        for(int i = 0; i<m.real_estate.size(); i++)
+        fixed_deposits = read("fixed_deposits".concat(".csv"));
         news = read("news".concat(".csv"));
     }
 
@@ -86,6 +79,11 @@ public class DataExtractor implements Serializable
         s = s.substring(1,s.length()-1);
         float f = Float.parseFloat(s);
         stk.currentMarketValue = f;
+    }
+    public void FDInitialise(int index, FixedDeposit fd)
+    {
+        fd.gainPercent = Float.parseFloat(fixed_deposits.get(index).get(1));
+        fd.currentMarketValue = 0;
     }
 
     public void updateGain(int index, Stock stk)
