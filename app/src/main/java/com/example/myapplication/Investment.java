@@ -1,22 +1,23 @@
 package com.example.myapplication;
+import java.io.Serializable;
 
-public class Investment
+public class Investment implements Serializable
 {
     String name;
-    int currentMarketValue;
+    float currentMarketValue;
     int currentSellingPrice;
-    int date;
+    Date date = new Date();
     float gainPercent;
     int liquidity;
 
     public void DailyUpdate()
     {
-        currentMarketValue = (int)((100 + gainPercent) * (float)currentMarketValue)/100;
-        date = date+1;
+        currentMarketValue = ((100 + gainPercent) * (float)currentMarketValue)/100;
+        date.date = date.date+1;
     }
     public void DateUpdate()
     {
-        date = date + 1;
+        date.date = date.date + 1;
     }
 
 }

@@ -18,9 +18,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.view.MenuInflater;
+import java.io.Serializable;
 
 
-public class MarketSim extends AppCompatActivity {
+public class MarketSim extends AppCompatActivity  implements Serializable {
 
     Market m;
     Player player;
@@ -30,7 +31,7 @@ public class MarketSim extends AppCompatActivity {
     {
         m.DailyUpdate();
         TextView textView = (TextView) this.findViewById(R.id.day);
-        textView.setText(String.valueOf(m.day));
+        textView.setText(String.valueOf(m.day.date));
         TextView textView2 = (TextView) this.findViewById(R.id.current_cash);
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
@@ -44,10 +45,10 @@ public class MarketSim extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        m = new Market(getApplicationContext());
-        player = new Player(m);
+        m = ((MyApplication) this.getApplication()).m;
+        player = ((MyApplication) this.getApplication()).player;
         TextView textView = (TextView) this.findViewById(R.id.day);
-        textView.setText(String.valueOf(m.day));
+        textView.setText(String.valueOf(m.day.date));
         TextView textView2 = (TextView) this.findViewById(R.id.current_cash);
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
@@ -76,6 +77,15 @@ public class MarketSim extends AppCompatActivity {
         };
 
         thread.start();
+
+        Button button = (Button) findViewById(R.id.gold);
+
+        button.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View arg0)
+            {
+                openBuyWindow("Gold");
+            }   });
     }
 
 
@@ -86,34 +96,28 @@ public class MarketSim extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener());
         if(anchor.equals(findViewById(R.id.stocks)))
             popupMenu.inflate(R.menu.stock_list);
-        else
+        else if(anchor.equals(findViewById(R.id.real_estate)))
             popupMenu.inflate(R.menu.real_estate_list);
+        else if(anchor.equals(findViewById(R.id.fixed_deposit)))
+            popupMenu.inflate(R.menu.fixed_deposit_list);
         popupMenu.show();
     }
 
-    /*private class OnDismissListener implements PopupMenu.OnDismissListener {
 
-        @Override
-        public void onDismiss(PopupMenu menu) {
-            // TODO Auto-generated method stub
-            Toast.makeText(getApplicationContext(), "Popup Menu is dismissed",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
     public void openBuyWindow(String s)
     {
-        /*try{thread.sleep(10000);}
-        catch(Exception e)
-        {
-        }*/
         Intent i = new Intent(getApplicationContext(),Buy.class);
+
+        i.putExtra("name", s);
         startActivity(i);
         //TextView textView = (TextView) this.findViewById(R.id.buy_name);
         //textView.setText(String.valueOf(s));
-        Toast.makeText(getApplicationContext(), s,
-                Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(getApplicationContext(), s,
+                Toast.LENGTH_SHORT).show();*/
     }
+
+
+
     private class OnMenuItemClickListener implements
             PopupMenu.OnMenuItemClickListener {
 
@@ -167,6 +171,16 @@ public class MarketSim extends AppCompatActivity {
                 case R.id.Chennai:
                     openBuyWindow("Chennai");
                     return true;
+                case R.id.SBI:
+                    openBuyWindow("SBI");
+                    return true;
+                case R.id.BoI:
+                    openBuyWindow("BoI");
+                    return true;
+                case R.id.ICICI:
+                    openBuyWindow("ICICI");
+                    return true;
+
 
 
             }

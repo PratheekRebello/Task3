@@ -1,6 +1,7 @@
 package com.example.myapplication;
+import java.io.Serializable;
 
-public class Player
+public class Player implements Serializable
 {
     Portfolio myPortfolio;
     int currentCash;
@@ -12,17 +13,25 @@ public class Player
     {
         myPortfolio = new Portfolio();
         this.m = m;
-        assets = myPortfolio.value();
+        //assets = myPortfolio.value();
         currentCash = 10000;
     }
 
-    public void Invest(Investment inv) throws NotEnoughMoney
+    public void buy(Investment inv,int units) throws NotEnoughMoney
     {
-        if(currentCash < inv.currentSellingPrice) {
+        if(currentCash < units * inv.currentMarketValue)
             throw new NotEnoughMoney();
+        else{
+            currentCash = currentCash - (int)(units * inv.currentMarketValue);
+            myPortfolio.addInvestment(inv.name, units,true);}
+    }
+    public void sell(Investment inv,int units) throws NotEnoughMoney
+    {
+        if(myPortfolio.getCurrentHolding(inv.name) < units)
+            throw new NotEnoughMoney();
+        else {
+            currentCash = currentCash + (int)(units * inv.currentMarketValue);
+            myPortfolio.addInvestment(inv.name, units, false);
         }
-        inv.date = m.day;
-        myPortfolio.addInvestment(inv);
-        currentCash = currentCash - inv.currentSellingPrice;
     }
 }

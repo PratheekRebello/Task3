@@ -1,10 +1,10 @@
 package com.example.myapplication;
 import java.util.*;
 import android.content.Context;
-
-public class Market
+import java.io.Serializable;
+public class Market implements Serializable
 {
-    int day;
+    Date day;
     DataExtractor data;
     LinkedList<Stock> stocks = new LinkedList<>();
     LinkedList<Bond> bonds = new LinkedList<>();
@@ -15,17 +15,17 @@ public class Market
 
     public Market(Context con)
     {
-        day = 1;
+        day = new Date();
         Stock a = new Stock("Reliance", 1, 0,0);
-        Stock b = new Stock("TataSteel", 1, 0,0);
+        Stock b = new Stock("Tata Steel", 1, 0,0);
         Stock c = new Stock("HDFC", 1, 0,0);
         Stock d = new Stock("Infosys", 1, 0,0);
         Stock e = new Stock("Cipla", 1, 0,0);
         Stock f = new Stock("ONGC", 1, 0,0);
-        Stock g = new Stock("MarutiSuzuki", 1, 0,0);
+        Stock g = new Stock("Maruti Suzuki", 1, 0,0);
         Stock h = new Stock("Unilever", 1, 0,0);
         Stock i = new Stock("Britannia", 1, 0,0);
-        Stock j = new Stock("BajajFinance", 1, 0,0);
+        Stock j = new Stock("Bajaj Finance", 1, 0,0);
 
         stocks.add(a);
         stocks.add(b);
@@ -47,9 +47,8 @@ public class Market
         bonds.add(cc);
 
         FixedDeposit aaa = new FixedDeposit("SBI",1,0,0);
-        FixedDeposit bbb = new FixedDeposit("HDFC",1,0,0);
+        FixedDeposit bbb = new FixedDeposit("BoI",1,0,0);
         FixedDeposit ccc = new FixedDeposit("ICICI",1,0,0);
-        FixedDeposit ddd = new FixedDeposit("Canara",1,0,0);
 
         fixed_deposits.add(aaa);
         fixed_deposits.add(bbb);
@@ -88,7 +87,7 @@ public class Market
     }
     public void DailyUpdate()
     {
-        this.day = this.day +1;
+        this.day.date = this.day.date +1;
         for(int i = 0; i<stocks.size(); i++)
         {
             data.updateGain(i,stocks.get(i));

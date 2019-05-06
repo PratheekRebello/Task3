@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import java.io.Serializable;
 
 import java.util.*;
 import java.io.BufferedReader;
@@ -8,16 +9,9 @@ import java.io.*;
 import android.content.Context;
 import android.content.res.AssetManager;
 
-public class DataExtractor
+public class DataExtractor implements Serializable
 {
-    public int get(String s)
-    {
-        return 1;
-    }
-    public int getG(String s)
-    {
-        return 1;
-    }
+    int ind = 10;
     Market m;
     Context c;
     List<List<List<String>>> stocks = new ArrayList<>();
@@ -77,27 +71,35 @@ public class DataExtractor
 
     public void Initialise(int index, Gold gld)
     {
-        String s = gold.get(index).get(5).get(1);
+        String s = gold.get(index).get(ind+m.day.date).get(1);
         s = s.substring(1,s.length()-1);
         float f = Float.parseFloat(s);
-        gld.currentMarketValue = (int)f;
+        gld.currentMarketValue = f;
     }
 
     public void Initialise(int index, Stock stk)
     {
-        String s = stocks.get(index).get(5).get(3);
+        String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
         s = s.substring(1,s.length()-1);
         float f = Float.parseFloat(s);
-        stk.currentMarketValue = (int)f;
+        stk.currentMarketValue = f;
     }
 
     public void updateGain(int index, Stock stk)
     {
-        Random rand = new Random();
+        String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
+        s = s.substring(1,s.length()-1);
+        float f1 = Float.parseFloat(s);
+        s = stocks.get(index).get(ind+((m.day.date +1) % 400)).get(3);
+        s = s.substring(1,s.length()-1);
+        float f2 = Float.parseFloat(s);
+        stk.gainPercent = 100 * (f2 - f1)/f2;
+
+        /*Random rand = new Random();
         int gain = rand.nextInt(2000);
         gain = gain - 1000;
         float gainP = ((float)(gain))/100;
-        stk.gainPercent = gainP;
+        stk.gainPercent = gainP;*/
 
     }
     /*public static void main(String args[]) {
