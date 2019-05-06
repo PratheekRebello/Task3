@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Reliance"
+        android:title="Reliance" />
+    <item
+        android:id="@+id/Tata_Steel"
+        android:title="Tata Steel" />
+    <item
+        android:id="@+id/HDFC"
+        android:title="HDFC" />
+    <item
+        android:id="@+id/Infosys"
+        android:title="Infosys" />
+    <item
+        android:id="@+id/Cipla"
+        android:title="Cipla" />
+    <item
+        android:id="@+id/ONGC"
+        android:title="ONGC" />
+    <item
+        android:id="@+id/Maruti_Suzuki"
+        android:title="Maruti Suzuki" />
+    <item
+        android:id="@+id/Unilever"
+        android:title="Unilever" />
+    <item
+        android:id="@+id/Britannia"
+        android:title="Britannia" />
+    <item
+        android:id="@+id/Bajaj_Finance"
+        android:title="Bajaj Finance" />
+</menu>

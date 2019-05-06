@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <module name = "shares_and_equity">
+        <name>shares_and_equity</name>
+        <option1>Reminder</option1>
+        <option2>Reminder</option2>
+        <option3>Reminder</option3>
+        <option4>Reminder</option4>
+        <correct>3</correct>
+    </module>
+    <module name = "ipo">
+        <option1>Reminder</option1>
+        <option2>Reminder</option2>
+        <option3>Reminder</option3>
+        <option4>Reminder</option4>
+        <correct>3</correct>
+    </module>
+    <module name = "types_of_shares">
+        <option1>Reminder</option1>
+        <option2>Reminder</option2>
+        <option3>Reminder</option3>
+        <option4>Reminder</option4>
+        <correct>3</correct>
+    </module>
+    <module name = "stock_indices">
+        <option1>Reminder</option1>
+        <option2>Reminder</option2>
+        <option3>Reminder</option3>
+        <option4>Reminder</option4>
+        <correct>3</correct>
+    </module>
+    <module name = "market_jargon">
+        <option1>Reminder</option1>
+        <option2>Reminder</option2>
+        <option3>Reminder</option3>
+        <option4>Reminder</option4>
+        <correct>3</correct>
+    </module>
+</quiz>
