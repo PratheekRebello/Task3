@@ -74,7 +74,7 @@ public class DataExtractor implements Serializable
         String s = gold.get(index).get(ind+m.day.date).get(1);
         s = s.substring(1,s.length()-1);
         float f = Float.parseFloat(s);
-        gld.currentMarketValue = f;
+        gld.currentMarketValue = f/100;
     }
 
     public void Initialise(int index, Stock stk)
@@ -115,7 +115,7 @@ public class DataExtractor implements Serializable
 
         if(m.day.date % 50 == 0)
         {
-            stk.currentMarketValue = f1;
+            stk.currentMarketValue = f1/100;
         }
     }
 }

@@ -41,4 +41,25 @@ public class Player implements Serializable
             myPortfolio.addInvestment(inv.name, units, false);
         }
     }
+    public float value()
+    {
+        float val = 0;
+        for(int i = 0; i<10;i++)
+        {
+            val = val + m.stocks.get(i).currentMarketValue * myPortfolio.getCurrentHolding(m.stocks.get(i).name);
+        }
+        for(int i = 11; i<15;i++)
+        {
+            val = val + m.real_estate.get(i-10).currentMarketValue * myPortfolio.getCurrentHolding(m.real_estate.get(i-10).name);
+        }
+        for(int i = 15; i<16;i++)
+        {
+            val = val + m.gold.get(i-15).currentMarketValue * myPortfolio.getCurrentHolding(m.gold.get(i-15).name);
+        }
+        for(int i = 16; i<19;i++)
+        {
+            val = val + m.fixed_deposits.get(i-16).currentMarketValue * myPortfolio.getCurrentHolding(m.fixed_deposits.get(i-16).name);
+        }
+        return val;
+    }
 }

@@ -35,7 +35,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         TextView textView2 = (TextView) this.findViewById(R.id.current_cash);
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
-        textView3.setText(String.valueOf(player.assets));
+        textView3.setText(String.valueOf(player.value()));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
