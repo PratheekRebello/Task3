@@ -11,9 +11,30 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View.OnClickListener;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
+import java.time.temporal.ChronoUnit;
+import java.time.Duration;
+import java.time.Period;
+import android.content.Context;
+import android.widget.PopupMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import android.view.MenuInflater;
+import java.io.Serializable;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    Market m;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
             }   });
         Button button2 = (Button) findViewById(R.id.market);
 
+        m = ((MyApplication) this.getApplication()).m;
         button2.setOnClickListener(new OnClickListener(){
             public void onClick(View arg0)
             {   Intent i = new Intent(getApplicationContext(),MarketSim.class);
                 startActivity(i);
-
             }   });
     }
 

@@ -18,10 +18,12 @@ import android.content.Intent;
 
 public class Quiz extends AppCompatActivity {
 
+    Player p;
     TextView question;
     RadioGroup rgroup;
     RadioButton option1,option2,option3,option4;
-    int correct;
+    RadioButton correct;
+    int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class Quiz extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
+        p = ((MyApplication) this.getApplication()).player;
         String s = (String)intent.getSerializableExtra("name");;
         rgroup = (RadioGroup) this.findViewById(R.id.options);
         question = (TextView) this.findViewById(R.id.question);
@@ -51,16 +54,23 @@ public class Quiz extends AppCompatActivity {
 
     public void verify()
     {
+        System.out.println(rgroup.getCheckedRadioButtonId());
+        RadioButton checkedRadioButton = (RadioButton) findViewById(rgroup.getCheckedRadioButtonId());
         if (rgroup.getCheckedRadioButtonId() == -1)
         {
             return;
         }
-        else if(rgroup.getCheckedRadioButtonId() == correct)
+        else if(checkedRadioButton.equals(correct))
         {
+            if(p.solved[index] == 0) {
+                p.currentCash = p.currentCash + 10000;
+                p.solved[index] = 1;
+            }
             finish();
         }
         else
         {
+            p.solved[index] = 2;
             finish();
         }
     }
@@ -69,48 +79,53 @@ public class Quiz extends AppCompatActivity {
     {
         if(s.equals("shares_and_equity"))
         {
+            index = 0;
             question.setText(String.valueOf("Question1"));
             option1.setText(String.valueOf("1"));
             option2.setText(String.valueOf("2"));
             option3.setText(String.valueOf("3"));
             option4 .setText(String.valueOf("4"));
-            correct = 3;
+            correct = option1;
         }
         else if(s.equals("ipo"))
         {
+            index = 1;
             question.setText(String.valueOf("Question2"));
             option1.setText(String.valueOf("1"));
             option2.setText(String.valueOf("2"));
             option3.setText(String.valueOf("3"));
             option4 .setText(String.valueOf("4"));
-            correct = 3;
+            correct = option2;
         }
         else if(s.equals("stock_indices"))
         {
+            index = 2;
             question.setText(String.valueOf("Question3"));
             option1.setText(String.valueOf("1"));
             option2.setText(String.valueOf("2"));
             option3.setText(String.valueOf("3"));
             option4 .setText(String.valueOf("4"));
-            correct = 3;
+            correct = option3;
         }
         else if(s.equals("types_of_shares"))
         {
+            index = 3;
             question.setText(String.valueOf("Question4"));
             option1.setText(String.valueOf("1"));
             option2.setText(String.valueOf("2"));
             option3.setText(String.valueOf("3"));
             option4 .setText(String.valueOf("4"));
-            correct = 3;
+            correct = option4;
         }
         else if(s.equals("market_jargon"))
         {
+            index = 4;
             question.setText(String.valueOf("Question5"));
             option1.setText(String.valueOf("1"));
             option2.setText(String.valueOf("2"));
             option3.setText(String.valueOf("3"));
             option4 .setText(String.valueOf("4"));
-            correct = 3;
+            correct = option1;
         }
     }
 

@@ -36,7 +36,6 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
         textView3.setText(String.valueOf(player.assets));
-
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,35 +55,43 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         //textView3.setText(String.valueOf(m.data.gold.get(0)));
 
 
-
         thread = new Thread() {
 
-            @Override
-            public void run() {
-                try {
-                    while (true) {
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                update();
-                            }
-                        });
+                @Override
+                public void run() {
+                    try {
+                        while (true) {
+                            Thread.sleep(1000);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    update();
+                                }
+                            });
+                        }
+                    } catch (InterruptedException e) {
                     }
-                } catch (InterruptedException e) {
                 }
-            }
-        };
-
+            };
         thread.start();
 
-        Button button = (Button) findViewById(R.id.gold);
 
+
+        Button button = (Button) findViewById(R.id.gold);
         button.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View arg0)
             {
                 openBuyWindow("Gold");
+            }   });
+
+        Button button6 = (Button) findViewById(R.id.ret);
+        button6.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0)
+            {
+                player.market_seen = true;
+                Intent i = new Intent(getApplicationContext(),ModuleList.class);
+                startActivity(i);
             }   });
     }
 

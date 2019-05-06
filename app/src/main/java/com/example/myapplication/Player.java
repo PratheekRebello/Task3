@@ -6,15 +6,22 @@ public class Player implements Serializable
     Portfolio myPortfolio;
     int currentCash;
     int assets;
+    boolean market_seen;
     Market m;
+    int[] solved = new int[5];
 
 
     public Player(Market m)
     {
         myPortfolio = new Portfolio();
         this.m = m;
+        market_seen = false;
         //assets = myPortfolio.value();
         currentCash = 10000;
+        for(int i = 0; i<solved.length;i++)
+        {
+            solved[i] = 0;
+        }
     }
 
     public void buy(Investment inv,int units) throws NotEnoughMoney
