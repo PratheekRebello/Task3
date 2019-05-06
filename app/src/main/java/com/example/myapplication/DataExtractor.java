@@ -19,6 +19,7 @@ public class DataExtractor implements Serializable
     List<List<List<String>>> real_estate = new ArrayList<>();
     List<List<List<String>>> gold = new ArrayList<>();
     List<List<List<String>>> fixed_deposits = new ArrayList<>();
+    List<List<String>> news = new ArrayList<>();
 
     public DataExtractor(Market m, Context c)
     {
@@ -48,6 +49,8 @@ public class DataExtractor implements Serializable
             List<List<String>> l = read(temp.name.concat(".csv"));
             real_estate.add(l);
         }
+        for(int i = 0; i<m.real_estate.size(); i++)
+        news = read("news".concat(".csv"));
     }
 
 
@@ -117,5 +120,20 @@ public class DataExtractor implements Serializable
         {
             stk.currentMarketValue = f1/100;
         }
+    }
+    public void newsUpdate()
+    {
+        List<String> l = news.get((m.day.date - 1) %6);
+        if(l==null) return;
+        else
+            for(int i = 0; i<l.size()-1;i++)
+            {
+                m.stocks.get(i).gainPercent = m.stocks.get(i).gainPercent + Float.parseFloat(l.get(i+1));
+            }
+    }
+
+    public String provideNews()
+    {
+        return news.get(m.day.date % 6).get(0);
     }
 }

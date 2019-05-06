@@ -36,6 +36,13 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
         textView3.setText(String.valueOf(player.value()));
+        TextView textView4 = (TextView) this.findViewById(R.id.bulletin1);
+        TextView textView5 = (TextView) this.findViewById(R.id.bulletin2);
+        TextView textView6 = (TextView) this.findViewById(R.id.bulletin3);
+        textView6.setText(String.valueOf(textView5.getText()));
+        textView5.setText(String.valueOf(textView4.getText()));
+        textView4.setText(String.valueOf(m.data.provideNews()));
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +68,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
                 public void run() {
                     try {
                         while (true) {
-                            Thread.sleep(1000);
+                            Thread.sleep(10000);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

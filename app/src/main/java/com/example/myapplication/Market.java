@@ -91,6 +91,10 @@ public class Market implements Serializable
         for(int i = 0; i<stocks.size(); i++)
         {
             data.updateGain(i,stocks.get(i));
+        }
+        data.newsUpdate();
+        for(int i = 0; i<stocks.size(); i++)
+        {
             stocks.get(i).DailyUpdate();
         }
         for(int i = 0; i<gold.size(); i++)

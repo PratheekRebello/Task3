@@ -17,14 +17,16 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:background="#B5D5E4"
+        android:background="?attr/colorPrimary"
         android:text="MODULES"
+        android:textColor="#F5F3F3"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/market"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.947" />
+        app:layout_constraintVertical_bias="0.972" />
 
     <Button
         android:id="@+id/market"
@@ -32,12 +34,14 @@
         android:layout_height="86dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="44dp"
-        android:background="#B5D5E4"
+        android:layout_marginBottom="88dp"
+        android:background="?attr/colorPrimary"
         android:text="MARKET"
+        android:textColor="#F5F2F2"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -48,9 +52,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#B5D5E4"
+        android:background="?attr/colorPrimary"
+        android:padding="8sp"
         android:text="WELCOME TO\nBIZ WHIZ!"
         android:textAlignment="center"
+        android:textColor="#F7F3F3"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/modules"
         app:layout_constraintEnd_toEndOf="parent"

@@ -181,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:background="#FFFFFF"
-            android:padding="8sp"
+            android:padding="0sp"
             android:scrollbars="vertical"
             android:text="NIFTY crashes!!"
             android:textColor="#070000" />
@@ -191,7 +191,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:background="#FCFFFFFF"
-            android:padding="8sp"
+            android:padding="0sp"
             android:scrollbars="vertical"
             android:text="TextView"
             android:textColor="#030000" />
@@ -201,7 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:background="#FFFFFF"
-            android:padding="8sp"
+            android:padding="0sp"
             android:scrollbars="vertical"
             android:text="TextView"
             android:textColor="#090000" />
