@@ -31,14 +31,14 @@
         android:layout_marginBottom="256dp"
         android:text="In the current era, we have only two types of shares and that are: \n 1. Voting shares are the ones that give its owners the right to vote in company matters along with the other benefits such as capital appreciation, dividends and liquidity.\n 2. Non-voting shares are issued to not give up control. In the AGM, shareholders come to listen to the directors and also to re-elect the board of directors but if they are non-voting shareholders, then they are not a risk to the founders and shareholders of the company. \n   Snapchat and Facebook are two leading tech companies where non voting shares have been issued recently but still people are buying into it because they believe in the company’s strategy and strive for growth. \n   Preference Shares are a type of Non Voting shares"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/take4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/take4"
         android:layout_width="248dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"

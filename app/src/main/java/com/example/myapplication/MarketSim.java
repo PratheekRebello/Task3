@@ -107,13 +107,8 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
     public void openBuyWindow(String s)
     {
         Intent i = new Intent(getApplicationContext(),Buy.class);
-
         i.putExtra("name", s);
         startActivity(i);
-        //TextView textView = (TextView) this.findViewById(R.id.buy_name);
-        //textView.setText(String.valueOf(s));
-        /*Toast.makeText(getApplicationContext(), s,
-                Toast.LENGTH_SHORT).show();*/
     }
 
 

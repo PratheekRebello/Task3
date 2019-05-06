@@ -58,6 +58,12 @@ public class ModuleList extends AppCompatActivity {
                 startActivity(i);
 
             }   });
-    }
+        Button button6 = (Button) findViewById(R.id.back);
 
+        button6.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0)
+            {   finish();
+
+            }   });
+    }
 }

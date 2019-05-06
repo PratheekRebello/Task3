@@ -24,7 +24,8 @@
         app:layout_constraintVertical_bias="0.381" />
 
     <Button
-        android:id="@+id/take1"
+        android:id="@+id/take5"
+
         android:layout_width="279dp"
         android:layout_height="52dp"
         android:layout_marginStart="100dp"
