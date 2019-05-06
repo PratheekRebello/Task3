@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Quiz"
+            android:label="@string/title_activity_quiz"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Buy"
             android:label="@string/title_activity_buy"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1F6F8"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MarketSim"
     tools:showIn="@layout/activity_market_sim">
@@ -27,14 +28,16 @@
                 android:id="@+id/stocks"
                 android:layout_width="170dp"
                 android:layout_height="148dp"
-                android:text="STOCKS"
+                android:background="#CBE8F3"
                 android:onClick="onClick"
+                android:text="STOCKS"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/gold"
                 android:layout_width="174dp"
                 android:layout_height="148dp"
+                android:background="#B5D5E4"
                 android:text="GOLD"
                 android:textSize="24sp" />
         </TableRow>
@@ -47,14 +50,17 @@
                 android:id="@+id/real_estate"
                 android:layout_width="177dp"
                 android:layout_height="160dp"
-                android:text="REAL\n ESTATE"
+                android:background="#B5D5E4"
                 android:onClick="onClick"
+                android:text="REAL\n ESTATE"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/fixed_deposit"
                 android:layout_width="169dp"
                 android:layout_height="match_parent"
+                android:background="#CBE8F3"
+                android:onClick="onClick"
                 android:text="FIXED\n DEPOSIT"
                 android:textSize="24sp" />
         </TableRow>
@@ -90,17 +96,18 @@
                 android:id="@+id/textView13"
                 android:layout_width="144dp"
                 android:layout_height="match_parent"
-                android:background="#3F51B5"
+                android:background="#B5D5E4"
                 android:requiresFadingEdge="horizontal"
                 android:text="DAY:"
                 android:textAlignment="center"
-                android:textColor="#FEFEFE"
+                android:textColor="#070000"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/day"
                 android:layout_width="177dp"
                 android:layout_height="match_parent"
+                android:background="#FFFFFF"
                 android:text="TextView"
                 android:textAlignment="center" />
         </TableRow>
@@ -113,17 +120,18 @@
                 android:id="@+id/textView15"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:background="#83B6DB"
+                android:background="#CBE8F3"
                 android:requiresFadingEdge="horizontal"
                 android:text="CURRENT CASH:"
                 android:textAlignment="center"
-                android:textColor="#FEFEFE"
+                android:textColor="#0A0000"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/current_cash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:text="TextView"
                 android:textAlignment="center" />
         </TableRow>
@@ -136,24 +144,67 @@
                 android:id="@+id/textView17"
                 android:layout_width="129dp"
                 android:layout_height="match_parent"
-                android:background="#3F51B5"
+                android:background="#B5D5E4"
                 android:requiresFadingEdge="horizontal"
                 android:text="ASSETS:"
                 android:textAlignment="center"
-                android:textColor="#FEFEFE"
+                android:textColor="#0A0000"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/assets"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#FFFFFF"
                 android:text="TextView"
                 android:textAlignment="center" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </TableLayout>
+
+    <LinearLayout
+        android:layout_width="322dp"
+        android:layout_height="216dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout2"
+        app:layout_constraintVertical_bias="0.114">
+
+        <TextView
+            android:id="@+id/bulletin1"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#FFFFFF"
+            android:padding="8sp"
+            android:scrollbars="vertical"
+            android:text="NIFTY crashes!!"
+            android:textColor="#070000" />
+
+        <TextView
+            android:id="@+id/bulletin2"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#FCFFFFFF"
+            android:padding="8sp"
+            android:scrollbars="vertical"
+            android:text="TextView"
+            android:textColor="#030000" />
+
+        <TextView
+            android:id="@+id/bulletin3"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#FFFFFF"
+            android:padding="8sp"
+            android:scrollbars="vertical"
+            android:text="TextView"
+            android:textColor="#090000" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

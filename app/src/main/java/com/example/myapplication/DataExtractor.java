@@ -85,16 +85,21 @@ public class DataExtractor implements Serializable
         stk.currentMarketValue = f;
     }
 
-    public void updateGain(int index, Stock stk)
+    public void updateGain(int index, Investment stk)
     {
         String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
         s = s.substring(1,s.length()-1);
         float f1 = Float.parseFloat(s);
+
         s = stocks.get(index).get(ind+((m.day.date +1) % 400)).get(3);
         s = s.substring(1,s.length()-1);
         float f2 = Float.parseFloat(s);
         stk.gainPercent = 100 * (f2 - f1)/f2;
 
+        if(m.day.date % 50 == 0)
+        {
+            stk.currentMarketValue = f1;
+        }
         /*Random rand = new Random();
         int gain = rand.nextInt(2000);
         gain = gain - 1000;
