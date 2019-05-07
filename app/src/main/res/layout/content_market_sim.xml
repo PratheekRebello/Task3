@@ -107,7 +107,7 @@
                 android:id="@+id/day"
                 android:layout_width="177dp"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF"
+                android:background="#FAF6F6"
                 android:text="TextView"
                 android:textAlignment="center" />
         </TableRow>
@@ -155,7 +155,7 @@
                 android:id="@+id/assets"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF"
+                android:background="#FAF6F6"
                 android:text="TextView"
                 android:textAlignment="center" />
         </TableRow>
@@ -190,7 +190,7 @@
             android:id="@+id/bulletin2"
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:background="#FCFFFFFF"
+            android:background="#FAF6F6"
             android:padding="0sp"
             android:scrollbars="vertical"
             android:text="TextView"

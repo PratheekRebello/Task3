@@ -4,7 +4,7 @@ import java.io.Serializable;
 public class Player implements Serializable
 {
     Portfolio myPortfolio;
-    int currentCash;
+    float currentCash;
     int assets;
     boolean market_seen;
     Market m;
@@ -13,7 +13,7 @@ public class Player implements Serializable
 
     public Player(Market m)
     {
-        myPortfolio = new Portfolio();
+        myPortfolio = new Portfolio(m);
         this.m = m;
         market_seen = false;
         //assets = myPortfolio.value();
@@ -29,18 +29,36 @@ public class Player implements Serializable
         if(currentCash < units * inv.currentMarketValue)
             throw new NotEnoughMoney();
         else{
-            currentCash = currentCash - (int)(units * inv.currentMarketValue);
+            currentCash = currentCash - (units * inv.currentMarketValue);
             myPortfolio.addInvestment(inv.name, units,true);}
     }
-    public void sell(Investment inv,int units) throws NotEnoughMoney
+
+    public void sell(Investment inv,int units) throws NotEnoughMoney, NotMature
     {
         if(myPortfolio.getCurrentHolding(inv.name) < units)
             throw new NotEnoughMoney();
+        else if(myPortfolio.getMaturity(inv.name) != -1)
+            throw new NotMature();
         else {
-            currentCash = currentCash + (int)(units * inv.currentMarketValue);
+            currentCash = currentCash + (units * inv.currentMarketValue);
             myPortfolio.addInvestment(inv.name, units, false);
         }
     }
+
+    //Update personal Fixed Deposit
+    public void UpdateFixedDeposit()
+    {
+        for(int i = 0; i<3; i++)
+        {
+            if(myPortfolio.Maturity[16+i] > -1){
+                myPortfolio.Maturity[16+i] = myPortfolio.Maturity[16+i] -1;
+                myPortfolio.Quantity[16+i] = (int)((float)myPortfolio.Quantity[16+i]  * (m.fixed_deposits.get(i).gainPercent + 100))/100;
+            }
+
+        }
+    }
+
+    //Get total current asset value
     public float value()
     {
         float val = 0;

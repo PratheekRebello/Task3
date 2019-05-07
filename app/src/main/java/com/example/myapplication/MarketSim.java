@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.view.MenuInflater;
 import java.io.Serializable;
+import android.text.method.ScrollingMovementMethod
+;
 
 
 public class MarketSim extends AppCompatActivity  implements Serializable {
@@ -29,7 +31,10 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
 
     public void update()
     {
+        //Perform updation every day
         m.DailyUpdate();
+        player.UpdateFixedDeposit();
+        System.out.println(player.myPortfolio.Maturity[16]);
         TextView textView = (TextView) this.findViewById(R.id.day);
         textView.setText(String.valueOf(m.day.date));
         TextView textView2 = (TextView) this.findViewById(R.id.current_cash);
@@ -51,6 +56,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Set day, cash and asset value
         m = ((MyApplication) this.getApplication()).m;
         player = ((MyApplication) this.getApplication()).player;
         TextView textView = (TextView) this.findViewById(R.id.day);
@@ -59,16 +65,25 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         textView2.setText(String.valueOf(player.currentCash));
         TextView textView3 = (TextView) this.findViewById(R.id.assets);
         textView3.setText(String.valueOf(player.assets));
-        //textView3.setText(String.valueOf(m.data.gold.get(0)));
 
+        TextView textView4 = (TextView) this.findViewById(R.id.bulletin1);
+        TextView textView5 = (TextView) this.findViewById(R.id.bulletin2);
+        TextView textView6 = (TextView) this.findViewById(R.id.bulletin3);
+        textView4.setMovementMethod(new ScrollingMovementMethod());
+        textView5.setMovementMethod(new ScrollingMovementMethod());
+        textView6.setMovementMethod(new ScrollingMovementMethod());
+        textView4.setText("No news today!");
+        textView5.setText("No news today!");
+        textView6.setText("No news today!");
 
+        //Updating dates
         thread = new Thread() {
 
                 @Override
                 public void run() {
                     try {
                         while (true) {
-                            Thread.sleep(10000);
+                            Thread.sleep(1000);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -92,6 +107,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
                 openBuyWindow("Gold");
             }   });
 
+        //Go back to modules
         Button button6 = (Button) findViewById(R.id.ret);
         button6.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
@@ -102,7 +118,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
             }   });
     }
 
-
+    //Anchor popup menus to buttons
     public void onClick(View anchor) {
         // TODO Auto-generated method stub
         PopupMenu popupMenu = new PopupMenu(MarketSim.this, anchor);
@@ -117,16 +133,16 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         popupMenu.show();
     }
 
-
+    //Go to the buy window
     public void openBuyWindow(String s)
     {
         Intent i = new Intent(getApplicationContext(),Buy.class);
+        //Send name of investment as parameter
         i.putExtra("name", s);
         startActivity(i);
     }
 
-
-
+    //PopUp Menu and decodings
     private class OnMenuItemClickListener implements
             PopupMenu.OnMenuItemClickListener {
 

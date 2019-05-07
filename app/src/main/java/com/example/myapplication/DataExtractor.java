@@ -8,12 +8,17 @@ import java.util.Random;
 import java.io.*;
 import android.content.Context;
 import android.content.res.AssetManager;
+import java.util.Random;
 
 public class DataExtractor implements Serializable
 {
     int ind = 10;
     Market m;
     Context c;
+    String currentNews;
+    Random rand = new Random();
+
+    //Lists to hold real market data values
     List<List<List<String>>> stocks = new ArrayList<>();
     List<List<List<String>>> bonds = new ArrayList<>();
     List<List<List<String>>> real_estate = new ArrayList<>();
@@ -25,6 +30,8 @@ public class DataExtractor implements Serializable
     {
         this.m = m;
         this.c = c;
+        this.currentNews = "No news today!!";
+        //Read data from .csv files
         for(int i = 0; i<m.stocks.size(); i++) {
             Stock temp = m.stocks.get(i);
             List<List<String>> l = read(temp.name.concat(".csv"));
@@ -43,7 +50,8 @@ public class DataExtractor implements Serializable
             real_estate.add(l);
         }
         fixed_deposits = read("fixed_deposits".concat(".csv"));
-        news = read("news".concat(".csv"));
+        news = read("stocks".concat(".csv"));
+        Collections.shuffle(news);
     }
 
 
@@ -65,6 +73,7 @@ public class DataExtractor implements Serializable
         return records;
     }
 
+    //Initialise Gold prices
     public void Initialise(int index, Gold gld)
     {
         String s = gold.get(index).get(ind+m.day.date).get(1);
@@ -72,7 +81,7 @@ public class DataExtractor implements Serializable
         float f = Float.parseFloat(s);
         gld.currentMarketValue = f/100;
     }
-
+    //Initialise Stock prices
     public void Initialise(int index, Stock stk)
     {
         String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
@@ -80,12 +89,14 @@ public class DataExtractor implements Serializable
         float f = Float.parseFloat(s);
         stk.currentMarketValue = f;
     }
+    //Initialise Fixed Deposit rates
     public void FDInitialise(int index, FixedDeposit fd)
     {
         fd.gainPercent = Float.parseFloat(fixed_deposits.get(index).get(1));
-        fd.currentMarketValue = 0;
+        fd.maturity = Integer.parseInt(fixed_deposits.get(index).get(2));
+        fd.currentMarketValue = 1;
     }
-
+    //Updating gain percent using real data
     public void updateGain(int index, Stock stk)
     {
         String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
@@ -102,7 +113,7 @@ public class DataExtractor implements Serializable
             stk.currentMarketValue = f1;
         }
     }
-
+    //Updating gain percent using real data for gold
     public void updateGainGold(int index, Gold stk)
     {
         String s = gold.get(index).get(ind+(m.day.date % 400)).get(1);
@@ -119,19 +130,31 @@ public class DataExtractor implements Serializable
             stk.currentMarketValue = f1/100;
         }
     }
+
+    //Further updating gain percent using news data
     public void newsUpdate()
     {
-        List<String> l = news.get((m.day.date - 1) %6);
-        if(l==null) return;
+        if(currentNews.equals("No news today!!"))
+            return;
         else
-            for(int i = 0; i<l.size()-1;i++)
-            {
-                m.stocks.get(i).gainPercent = m.stocks.get(i).gainPercent + Float.parseFloat(l.get(i+1));
+        {
+            List<String> l = news.get((m.day.date - 1) % 20);
+            if (l == null)
+                return;
+            else {
+                for (int i = 0; i < l.size() - 2; i++) {
+                    m.stocks.get(i).gainPercent = m.stocks.get(i).gainPercent + Float.parseFloat(l.get(i + 1));
+                }
+                m.gold.get(0).gainPercent = m.gold.get(0).gainPercent + Float.parseFloat(l.get(11));
             }
+        }
     }
-
+    //Give string news data
     public String provideNews()
     {
-        return news.get(m.day.date % 6).get(0);
+        if(rand.nextInt() % 3 == 0)
+            currentNews = news.get(m.day.date % 20).get(0);
+        else currentNews = "No news today!!";
+        return currentNews;
     }
 }

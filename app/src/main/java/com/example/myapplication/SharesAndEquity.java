@@ -12,12 +12,14 @@ import android.widget.Button;
 
 public class SharesAndEquity extends AppCompatActivity {
 
+    //Module Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shares_and_equity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //Take Quiz
         Button b = (Button) this.findViewById(R.id.take1);
         b.setOnClickListener(new View.OnClickListener(){
 

@@ -21,6 +21,8 @@ public class ModuleList extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         p = ((MyApplication) this.getApplication()).player;
+
+        //Buttons for different modules
         button1 = (Button) findViewById(R.id.shares_and_equity);
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View arg0)
@@ -72,6 +74,7 @@ public class ModuleList extends AppCompatActivity {
 
     }
 
+    //Change colour based on right and wrong
     public void setColor(Button b, int i)
     {
         if(p.solved[i] == 1)

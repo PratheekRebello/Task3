@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
+//Buying and Selling Activity
 public class Buy extends AppCompatActivity implements Serializable{
 
     Player player;
@@ -26,6 +27,8 @@ public class Buy extends AppCompatActivity implements Serializable{
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
         text =  (EditText) this.findViewById(R.id.number);
+
+        //Get the name of the investment from the previous activity
         String s = (String)intent.getSerializableExtra("name");
         m = ((MyApplication) this.getApplication()).m;
         player = ((MyApplication) this.getApplication()).player;
@@ -33,6 +36,7 @@ public class Buy extends AppCompatActivity implements Serializable{
         TextView textView = (TextView) this.findViewById(R.id.buy_name);
         textView.setText(String.valueOf(s));
 
+        //Figure out which kind of investment this is.
         temp = null;
         for(int i = 0; i < m.stocks.size();i++)
         {
@@ -71,7 +75,7 @@ public class Buy extends AppCompatActivity implements Serializable{
                 }
             }
         }
-
+        //Fill in the appropriate values
         if(temp!=null)
         {
             TextView textView1 = (TextView) this.findViewById(R.id.buy_current);
@@ -82,15 +86,8 @@ public class Buy extends AppCompatActivity implements Serializable{
             textView3.setText(String.valueOf(player.myPortfolio.getCurrentHolding(s)));
         }
 
-        /*m.day.setListener(new Date.ChangeListener() {
-            @Override
-            public void onChange() {
-                Toast.makeText(getApplicationContext(),"blah", Toast.LENGTH_LONG).show();
-            }
-        });*/
-
+        //Buying button
         Button button = (Button) findViewById(R.id.buy);
-
         button.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View arg0)
@@ -114,8 +111,8 @@ public class Buy extends AppCompatActivity implements Serializable{
 
             }   });
 
+        //Selling Button
         Button button1 = (Button) findViewById(R.id.sell);
-
         button1.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View arg0)
@@ -139,6 +136,7 @@ public class Buy extends AppCompatActivity implements Serializable{
                 }
 
             }   });
+        //Exit Button
         Button button2 = (Button) findViewById(R.id.exit);
         button2.setOnClickListener(new View.OnClickListener(){
 

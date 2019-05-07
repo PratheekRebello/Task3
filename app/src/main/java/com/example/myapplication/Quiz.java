@@ -31,7 +31,9 @@ public class Quiz extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent intent = getIntent();
+        //Set all objects
         p = ((MyApplication) this.getApplication()).player;
+        //Get name of module from previous activity
         String s = (String)intent.getSerializableExtra("name");;
         rgroup = (RadioGroup) this.findViewById(R.id.options);
         question = (TextView) this.findViewById(R.id.question);
@@ -41,6 +43,7 @@ public class Quiz extends AppCompatActivity {
         option4 = (RadioButton) this.findViewById(R.id.option4);
         this.setUp(s);
 
+        //Verifiy if the answer is right
         Button b = (Button)this.findViewById(R.id.verify);
         b.setOnClickListener(new View.OnClickListener(){
 
@@ -55,21 +58,26 @@ public class Quiz extends AppCompatActivity {
     public void verify()
     {
         System.out.println(rgroup.getCheckedRadioButtonId());
+        //Selected button
         RadioButton checkedRadioButton = (RadioButton) findViewById(rgroup.getCheckedRadioButtonId());
         if (rgroup.getCheckedRadioButtonId() == -1)
         {
+            //None selected
             return;
         }
         else if(checkedRadioButton.equals(correct))
         {
+            //Correct Selected, and unattempted
             if(p.solved[index] == 0) {
                 p.currentCash = p.currentCash + 10000;
                 p.solved[index] = 1;
             }
+            //If attempted already, skip
             finish();
         }
         else
         {
+            //Wrong Selected
             p.solved[index] = 2;
             finish();
         }
@@ -77,6 +85,7 @@ public class Quiz extends AppCompatActivity {
 
     public void setUp(String s)
     {
+        //Set up the quiz page - question, options, and correct answer
         if(s.equals("shares_and_equity"))
         {
             index = 0;
@@ -128,7 +137,5 @@ public class Quiz extends AppCompatActivity {
             correct = option3;
         }
     }
-
-
 
 }

@@ -12,6 +12,7 @@ import android.widget.Button;
 
 public class TypesOfShares extends AppCompatActivity {
 
+    //Module activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,7 @@ public class TypesOfShares extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Take Quiz
         Button b = (Button) this.findViewById(R.id.take4);
         b.setOnClickListener(new View.OnClickListener(){
 

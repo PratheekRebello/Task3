@@ -8,7 +8,7 @@ public class Investment implements Serializable
     int currentSellingPrice;
     Date date = new Date();
     float gainPercent;
-    int liquidity;
+    int maturity =0;
 
     public void DailyUpdate()
     {

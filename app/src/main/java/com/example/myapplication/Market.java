@@ -46,9 +46,9 @@ public class Market implements Serializable
         bonds.add(bb);
         bonds.add(cc);
 
-        FixedDeposit aaa = new FixedDeposit("SBI",1,0,0);
-        FixedDeposit bbb = new FixedDeposit("BoI",1,0,0);
-        FixedDeposit ccc = new FixedDeposit("ICICI",1,0,0);
+        FixedDeposit aaa = new FixedDeposit("SBI",1,1,0);
+        FixedDeposit bbb = new FixedDeposit("BoI",1,1,0);
+        FixedDeposit ccc = new FixedDeposit("ICICI",1,1,0);
 
         fixed_deposits.add(aaa);
         fixed_deposits.add(bbb);

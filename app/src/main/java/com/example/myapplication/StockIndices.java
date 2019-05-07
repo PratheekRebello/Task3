@@ -12,12 +12,15 @@ import android.widget.Button;
 
 public class StockIndices extends AppCompatActivity {
 
+    //Module Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_indices);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Take Quiz
         Button b = (Button) this.findViewById(R.id.take3);
         b.setOnClickListener(new View.OnClickListener(){
 

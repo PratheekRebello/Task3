@@ -1,10 +1,26 @@
 package com.example.myapplication;
+import android.widget.Toast;
+
 import java.util.*;
 import java.io.Serializable;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 public class Portfolio implements Serializable
 {
+    //Array of Qauntities of Each investment
     int[] Quantity = new int[19];
+    int [] Maturity = new int[19];
+    Market m;
+
+    public Portfolio(Market m)
+    {
+        this.m = m;
+        for(int i = 0; i< Maturity.length;i++)
+            Maturity[i] = -1;
+    }
 
     public void addInvestment(String s, int amt, boolean up)
     {
@@ -43,12 +59,69 @@ public class Portfolio implements Serializable
             Quantity[14] = Quantity[14] +amt;
         else if(s.equals("Gold"))
             Quantity[15] = Quantity[15] +amt;
-        else if(s.equals("SBI"))
-            Quantity[16] = Quantity[16] +amt;
+        else if(s.equals("SBI")) {
+            if (Maturity[16] == -1) {
+                Quantity[16] = Quantity[16] + amt;
+                Maturity[16] = m.fixed_deposits.get(0).maturity;
+            }
+        }
         else if(s.equals("BoI"))
-            Quantity[17] = Quantity[17] +amt;
+        {
+            if (Maturity[17] == -1) {
+                Quantity[17] = Quantity[17] + amt;
+                Maturity[17] = m.fixed_deposits.get(0).maturity;
+            }
+        }
         else if(s.equals("ICICI"))
-            Quantity[18] = Quantity[18] +amt;
+        {
+            if (Maturity[18] == -1) {
+                Quantity[18] = Quantity[18] + amt;
+                Maturity[18] = m.fixed_deposits.get(0).maturity;
+            }
+        }
+    }
+    public int getMaturity(String s)
+    {
+        if(s.equals("Reliance"))
+            return Maturity[0];
+        else if(s.equals("Tata Steel"))
+            return Maturity[1];
+        else if(s.equals("HDFC"))
+            return Maturity[2];
+        else if(s.equals("Infosys"))
+            return Maturity[3];
+        else if(s.equals("Cipla"))
+            return Maturity[4];
+        else if(s.equals("ONGC"))
+            return Maturity[5];
+        else if(s.equals("Maruti Suzuki"))
+            return Maturity[6];
+        else if(s.equals("Unilever"))
+            return Maturity[7];
+        else if(s.equals("Britannia"))
+            return Maturity[8];
+        else if(s.equals("Bajaj Finance"))
+            return Maturity[9];
+        else if(s.equals("Delhi"))
+            return Maturity[10];
+        else if(s.equals("Mumbai"))
+            return Maturity[11];
+        else if(s.equals("Kolkata"))
+            return Maturity[12];
+        else if(s.equals("Bangalore"))
+            return Maturity[13];
+        else if(s.equals("Chennai"))
+            return Maturity[14];
+        else if(s.equals("Gold"))
+            return Maturity[15];
+        else if(s.equals("SBI"))
+            return Maturity[16];
+        else if(s.equals("BoI"))
+            return Maturity[17];
+        else if(s.equals("ICICI"))
+            return Maturity[18];
+        else
+            return 0;
     }
     public int getCurrentHolding(String s)
     {
