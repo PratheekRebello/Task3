@@ -57,7 +57,6 @@ public class Quiz extends AppCompatActivity {
 
     public void verify()
     {
-        System.out.println(rgroup.getCheckedRadioButtonId());
         //Selected button
         RadioButton checkedRadioButton = (RadioButton) findViewById(rgroup.getCheckedRadioButtonId());
         if (rgroup.getCheckedRadioButtonId() == -1)

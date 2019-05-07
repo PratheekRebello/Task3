@@ -34,7 +34,6 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
         //Perform updation every day
         m.DailyUpdate();
         player.UpdateFixedDeposit();
-        System.out.println(player.myPortfolio.Maturity[16]);
         TextView textView = (TextView) this.findViewById(R.id.day);
         textView.setText(String.valueOf(m.day.date));
         TextView textView2 = (TextView) this.findViewById(R.id.current_cash);
