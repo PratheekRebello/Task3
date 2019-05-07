@@ -84,6 +84,10 @@ public class Market implements Serializable
         {
             data.Initialise(i,gold.get(i));
         }
+        for(int i =0; i<real_estate.size();i++)
+        {
+            data.RealEstateInitialise(i, real_estate.get(i));
+        }
         for(int i =0; i<fixed_deposits.size();i++)
         {
             data.FDInitialise(i, fixed_deposits.get(i));
@@ -105,6 +109,11 @@ public class Market implements Serializable
         {
             data.updateGainGold(i,gold.get(i));
             gold.get(i).DailyUpdate();
+        }
+        for(int i = 0; i<fixed_deposits.size(); i++)
+        {
+            data.updateGainRealEstate(i,real_estate.get(i));
+            real_estate.get(i).DailyUpdate();
         }
     }
 

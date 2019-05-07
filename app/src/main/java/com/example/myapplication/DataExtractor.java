@@ -97,6 +97,10 @@ public class DataExtractor implements Serializable
         fd.maturity = Integer.parseInt(fixed_deposits.get(index).get(2));
         fd.currentMarketValue = 1;
     }
+    public void RealEstateInitialise(int index, RealEstate fd)
+    {
+        fd.currentMarketValue = (float)(1000 + rand.nextInt(100) );
+    }
     //Updating gain percent using real data
     public void updateGain(int index, Stock stk)
     {
@@ -137,7 +141,10 @@ public class DataExtractor implements Serializable
             stk.currentMarketValue = f1/100;
         }
     }
-
+    public void updateGainRealEstate(int index, RealEstate stk)
+    {
+        stk.gainPercent = rand.nextInt(5);
+    }
     //Further updating gain percent using news data
     public void newsUpdate()
     {
@@ -159,7 +166,7 @@ public class DataExtractor implements Serializable
     //Give string news data
     public String provideNews()
     {
-        if(rand.nextInt() % 3 == 0)
+        if(rand.nextInt() % 2 == 0)
             currentNews = news.get(m.day.date % 20).get(0);
         else currentNews = "No news today!!";
         return currentNews;

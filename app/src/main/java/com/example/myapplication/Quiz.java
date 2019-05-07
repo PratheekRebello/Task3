@@ -11,9 +11,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.content.Intent;
-
-
-
+import android.widget.Toast;
 
 
 public class Quiz extends AppCompatActivity {
@@ -62,6 +60,7 @@ public class Quiz extends AppCompatActivity {
         if (rgroup.getCheckedRadioButtonId() == -1)
         {
             //None selected
+            Toast.makeText(getBaseContext(), "Pick an Answer" , Toast.LENGTH_SHORT ).show();
             return;
         }
         else if(checkedRadioButton.equals(correct))
@@ -71,6 +70,8 @@ public class Quiz extends AppCompatActivity {
                 p.currentCash = p.currentCash + 10000;
                 p.solved[index] = 1;
             }
+            Toast.makeText(getBaseContext(), "Right Answer! \n +10000 Cash" , Toast.LENGTH_SHORT ).show();
+
             //If attempted already, skip
             finish();
         }
@@ -78,6 +79,7 @@ public class Quiz extends AppCompatActivity {
         {
             //Wrong Selected
             p.solved[index] = 2;
+            Toast.makeText(getBaseContext(), "Wrong Answer!" , Toast.LENGTH_SHORT ).show();
             finish();
         }
     }
