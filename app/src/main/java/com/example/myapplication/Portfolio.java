@@ -12,6 +12,7 @@ public class Portfolio implements Serializable
 {
     //Array of Qauntities of Each investment
     int[] Quantity = new int[19];
+    //Array of Maturities of Each investment - if -1, it is liquid
     int [] Maturity = new int[19];
     Market m;
 
@@ -21,7 +22,7 @@ public class Portfolio implements Serializable
         for(int i = 0; i< Maturity.length;i++)
             Maturity[i] = -1;
     }
-
+    //Add amt units of an investment
     public void addInvestment(String s, int amt, boolean up)
     {
         if(!up)
@@ -80,6 +81,7 @@ public class Portfolio implements Serializable
             }
         }
     }
+    //Get Maturity date
     public int getMaturity(String s)
     {
         if(s.equals("Reliance"))
@@ -123,6 +125,7 @@ public class Portfolio implements Serializable
         else
             return 0;
     }
+    //Get current Quantity held
     public int getCurrentHolding(String s)
     {
         if(s.equals("Reliance"))

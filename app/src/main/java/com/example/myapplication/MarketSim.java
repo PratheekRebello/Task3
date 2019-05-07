@@ -83,7 +83,7 @@ public class MarketSim extends AppCompatActivity  implements Serializable {
                 public void run() {
                     try {
                         while (true) {
-                            Thread.sleep(1000);
+                            Thread.sleep(5000);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

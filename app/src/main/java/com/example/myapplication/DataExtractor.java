@@ -31,6 +31,7 @@ public class DataExtractor implements Serializable
         this.m = m;
         this.c = c;
         this.currentNews = "No news today!!";
+
         //Read data from .csv files
         for(int i = 0; i<m.stocks.size(); i++) {
             Stock temp = m.stocks.get(i);
@@ -55,7 +56,7 @@ public class DataExtractor implements Serializable
     }
 
 
-
+    //Function to read a list of list of strings i.e a csv file
     private List<List<String>> read(String s)
     {
         List<List<String>> records = new ArrayList<>();
@@ -99,13 +100,16 @@ public class DataExtractor implements Serializable
     //Updating gain percent using real data
     public void updateGain(int index, Stock stk)
     {
+        //Get value of this day
         String s = stocks.get(index).get(ind+(m.day.date % 400)).get(3);
         s = s.substring(1,s.length()-1);
         float f1 = Float.parseFloat(s);
 
+        //Get value of next day
         s = stocks.get(index).get(ind+((m.day.date +1) % 400)).get(3);
         s = s.substring(1,s.length()-1);
         float f2 = Float.parseFloat(s);
+        //Update Gain Percent
         stk.gainPercent = 100 * (f2 - f1)/f2;
 
         if(m.day.date % 50 == 0)
@@ -116,13 +120,16 @@ public class DataExtractor implements Serializable
     //Updating gain percent using real data for gold
     public void updateGainGold(int index, Gold stk)
     {
+        //Get value of this day
         String s = gold.get(index).get(ind+(m.day.date % 400)).get(1);
         s = s.substring(1,s.length()-1);
         float f1 = Float.parseFloat(s);
 
+        //Get value of next day
         s = gold.get(index).get(ind+((m.day.date +1) % 400)).get(1);
         s = s.substring(1,s.length()-1);
         float f2 = Float.parseFloat(s);
+        //Update Gain percent
         stk.gainPercent = 100 * (f2 - f1)/f2;
 
         if(m.day.date % 50 == 0)
